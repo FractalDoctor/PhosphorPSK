@@ -89,7 +89,7 @@
 <h2>FEATURES</h2>
 <ul>
     <li>Real-time BPSK decoding via microphone &mdash; PSK31, PSK63, and PSK125</li>
-    <li>Automatic carrier tracking (AFC) acquires and follows the signal across the audio passband</li>
+    <li>Locks onto the strongest signal in the passband &mdash; isolate the one you want by tuning your radio</li>
     <li>Canonical G3PLX Varicode, decoded exactly</li>
     <li>Live FFT spectrum display with carrier cursor and scrolling waterfall</li>
     <li>BPSK vector scope &mdash; watch the constellation snap into place as it locks</li>
@@ -101,10 +101,10 @@
 </ul>
 
 <h2>DSP ENGINE</h2>
-<p>Complex numerically-controlled-oscillator downconvert to baseband, cascaded biquad matched filtering, a symbol-clock digital phase-locked loop (DPLL) for timing recovery, and differential BPSK bit decision feeding a Varicode assembler. A 512-point FFT tracks the carrier by the power-weighted centroid of the occupied band. All signal processing runs entirely on-device.</p>
+<p>Complex numerically-controlled-oscillator downconvert to baseband, a two-stage matched filter (a raised-cosine filter then the G3PLX pskcore filter), amplitude-waveform symbol-timing recovery, and differential BPSK bit decision feeding a Varicode assembler. The receive chain is ported from fldigi, the reference PSK31 implementation. PhosphorPSK locks the strongest signal in the passband; you isolate the one you want by tuning your radio. All signal processing runs entirely on-device.</p>
 
 <h2>DECODER ACCURACY</h2>
-<p>PhosphorPSK has been tested against synthetic BPSK signals across a range of carrier offsets and signal-to-noise ratios. Detailed test results, methodology, and decoded output are available in the <a href="tests.html">decoder test report</a>.</p>
+<p>PhosphorPSK has been tested against raised-cosine pulse-shaped synthetic signals and genuine off-air PSK31 recordings. Detailed test results, methodology, and decoded output are available in the <a href="tests.html">decoder test report</a>.</p>
 
 <h2>WHERE TO FIND PSK31</h2>
 <ul>
