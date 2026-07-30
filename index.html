@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhosphorPSK - Real-Time PSK31 Decoder</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #0a0a0a;
+            color: #20e820;
+            font-family: "SF Mono", "Menlo", "Monaco", "Courier New", monospace;
+            font-size: 14px;
+            line-height: 1.6;
+            padding: 40px 20px;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+        .border-top, .border-bottom {
+            color: #18b018;
+            white-space: pre;
+            overflow: hidden;
+            font-size: 13px;
+        }
+        h1 {
+            color: #20e820;
+            font-size: 22px;
+            font-weight: normal;
+            text-align: center;
+            padding: 20px 0 4px 0;
+            letter-spacing: 3px;
+        }
+        .tagline {
+            text-align: center;
+            color: #108010;
+            padding: 0 0 20px 0;
+            font-size: 13px;
+        }
+        h2 {
+            color: #20e820;
+            font-size: 14px;
+            font-weight: normal;
+            padding: 16px 0 8px 0;
+            letter-spacing: 1px;
+        }
+        p, li {
+            color: #18c018;
+            padding: 4px 0;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        ul li::before {
+            content: "> ";
+            color: #20e820;
+        }
+        a {
+            color: #20e820;
+        }
+        .content {
+            padding: 0 16px;
+        }
+        .links {
+            padding-top: 20px;
+            font-size: 13px;
+        }
+        .links a {
+            display: inline-block;
+            margin-right: 24px;
+            text-decoration: none;
+        }
+        .links a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+<div class="border-top">&#9484;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9488;</div>
+
+<h1>&#9651; PHOSPHORPSK</h1>
+<div class="tagline">Real-Time PSK31 Decoder for iPhone.</div>
+
+<div class="content">
+
+<p>PhosphorPSK decodes PSK31 (Phase Shift Keying) signals in real time using your iPhone's microphone. Hold your phone near a shortwave radio tuned to a PSK31 signal and watch the text appear on an authentic phosphor CRT display, character by character.</p>
+
+<p>No internet connection required. No external hardware. No account. Just your iPhone and a radio.</p>
+
+<h2>FEATURES</h2>
+<ul>
+    <li>Real-time BPSK decoding via microphone &mdash; PSK31, PSK63, and PSK125</li>
+    <li>Automatic carrier tracking (AFC) acquires and follows the signal across the audio passband</li>
+    <li>Canonical G3PLX Varicode, decoded exactly</li>
+    <li>Live FFT spectrum display with carrier cursor and scrolling waterfall</li>
+    <li>BPSK vector scope &mdash; watch the constellation snap into place as it locks</li>
+    <li>Carrier, SNR, level, and lock readouts</li>
+    <li>Session logging with full decoded text, timestamps, and signal parameters</li>
+    <li>Amber and green phosphor CRT themes with scanlines, vignette, and glow effects</li>
+    <li>Adjustable input gain, manual or automatic carrier tuning</li>
+    <li>No accounts, no tracking, no network access</li>
+</ul>
+
+<h2>DSP ENGINE</h2>
+<p>Complex numerically-controlled-oscillator downconvert to baseband, cascaded biquad matched filtering, a symbol-clock digital phase-locked loop (DPLL) for timing recovery, and differential BPSK bit decision feeding a Varicode assembler. A 512-point FFT tracks the carrier by the power-weighted centroid of the occupied band. All signal processing runs entirely on-device.</p>
+
+<h2>DECODER ACCURACY</h2>
+<p>PhosphorPSK has been tested against synthetic BPSK signals across a range of carrier offsets and signal-to-noise ratios. Detailed test results, methodology, and decoded output are available in the <a href="tests.html">decoder test report</a>.</p>
+
+<h2>WHERE TO FIND PSK31</h2>
+<ul>
+    <li>20m band: around 14.070 MHz</li>
+    <li>40m band: around 7.070 MHz</li>
+    <li>80m band: around 3.580 MHz</li>
+    <li>15m band: around 21.070 MHz</li>
+    <li>30m band: around 10.142 MHz</li>
+</ul>
+<p>Set the radio to USB and tune so the signal sits around 1 kHz of audio. A shortwave receiver, SDR, or WebSDR audio played through a speaker is all you need.</p>
+
+<h2>SUPPORT</h2>
+<p>Need help? Have a question, bug report, or feature request?</p>
+<ul>
+    <li><a href="https://github.com/FractalDoctor/PhosphorPSK/issues/new?labels=question&template=blank" target="_blank" rel="noopener">Ask a question</a> &mdash; get help with using PhosphorPSK</li>
+    <li><a href="https://github.com/FractalDoctor/PhosphorPSK/issues/new?labels=bug" target="_blank" rel="noopener">Report a bug</a> &mdash; let us know if something isn't working</li>
+    <li><a href="https://github.com/FractalDoctor/PhosphorPSK/issues/new?labels=enhancement" target="_blank" rel="noopener">Request a feature</a> &mdash; suggest improvements or new functionality</li>
+</ul>
+<p>You can also browse <a href="https://github.com/FractalDoctor/PhosphorPSK/issues" target="_blank" rel="noopener">existing issues</a> to see if your question has already been answered.</p>
+
+<div class="links">
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="tests.html">Decoder Test Report</a>
+    <a href="https://github.com/FractalDoctor/PhosphorPSK/issues">Support &amp; Issues</a>
+</div>
+
+</div>
+
+<div class="border-bottom" style="padding-top: 24px;">&#9492;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9496;</div>
+
+</body>
+</html>
